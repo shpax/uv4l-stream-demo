@@ -32,9 +32,9 @@ router.get("/:scriptName", async function (req, res, next) {
     } catch (e) {
       throw createError(400, "missing params for the script", e);
     }
-    const result = await exec(cmdQuery);
+    const result = childProcess.execSync(cmdQuery);
 
-    res.send(result);
+    res.send(result.toString());
   } catch (err) {
     next(err);
   }
