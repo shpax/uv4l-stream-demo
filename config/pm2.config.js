@@ -1,8 +1,10 @@
+const path = require("path");
+
 module.exports = {
   apps: [
     {
       name: "console-exec-service",
-      script: `bin/www`,
+      script: path.resolve(__dirname, "../", "bin/www"),
       restart_delay: 500,
       watch: ["config"],
       watch_options: {
